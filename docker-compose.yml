@@ -9,9 +9,9 @@ services:
       POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: local
     command:
-      - "postgres"
-      - "-c"
-      - "wal_level=logical"
+      - postgres
+      - -c
+      - wal_level=logical
     volumes:
       - pgdata:/var/lib/postgresql/data
 volumes:

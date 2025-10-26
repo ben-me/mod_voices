@@ -1,10 +1,10 @@
 # Mod_Voices
 
-A website that connects (gothic) modding projects with fans who are willing to lend their voices. 
+A website that connects (gothic) modding projects with fans who are willing to lend their voices.
 
 ## What is the motivation behind this project?
 
-For a long time modding projects had a hard time finding people that would lend characters their voices. 
+For a long time modding projects had a hard time finding people that would lend characters their voices.
 Tools like GameTTS seemed to solve this problem by letting you synthesize voice lines using existing voice files.
 
 Of course this didn't come without its problem. The voice is protected by several laws and basic human rights.
