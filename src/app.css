@@ -1,2 +1,25 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
+
+:root {
+  --color-gold: oklch(0.903 0.184 98.42);
+  --color-green: oklch(0.7483 0.245 142.63);
+  --color-dark-blue: oklch(0.7483 0.037 206.28);
+}
+
+@theme {
+  --color-bg-dark: oklch(0 0 0);
+  --color-bg: oklch(0.1 0 0);
+  --color-bg-light: oklch(0.2 0 0);
+
+  --color-fg-light: oklch(1 0 0)
+  --color-fg: oklch(0.94 0 0)
+  --color-fg-dark: oklch(0.88 0 0)
+
+}
+
+@theme inline {
+  --color-primary: var(--color-gold);
+  --color-secondary: var(--color-dark-blue);
+  --color-accent: var(--color-green);
+}
