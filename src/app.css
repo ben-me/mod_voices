@@ -1,25 +1,57 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/forms';
 
 :root {
   --color-gold: oklch(0.903 0.184 98.42);
   --color-green: oklch(0.7483 0.245 142.63);
-  --color-dark-blue: oklch(0.7483 0.037 206.28);
+  --color-dark-blue: oklch(0.3569 0.037 206.28);
 }
 
 @theme {
-  --color-bg-dark: oklch(0 0 0);
-  --color-bg: oklch(0.1 0 0);
+  --color-bg-dark: oklch(0.13 0 0);
+  --color-bg: oklch(0.25 0 0);
   --color-bg-light: oklch(0.2 0 0);
 
-  --color-fg-light: oklch(1 0 0)
-  --color-fg: oklch(0.94 0 0)
-  --color-fg-dark: oklch(0.88 0 0)
+  --color-fg-light: oklch(1 0 0);
+  --color-fg: oklch(0.94 0 0);
+  --color-fg-dark: oklch(0.88 0 0);
 
+  --font-meta: "Metamorphous";
 }
 
 @theme inline {
   --color-primary: var(--color-gold);
   --color-secondary: var(--color-dark-blue);
   --color-accent: var(--color-green);
+}
+
+@layer base {
+  html {
+    @apply bg-bg text-white;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+
+  body {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100dvh;
+    line-height: 1.5;
+  }
+}
+
+@font-face {
+  font-family: "Metamorphous";
+  src: url("Metamorphous.ttf") format("truetype");
+  font-weight: 400;
 }
