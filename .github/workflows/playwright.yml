@@ -1,4 +1,4 @@
-name: Page CI
+name: Quality control
 on:
   push:
     branches:
@@ -6,6 +6,11 @@ on:
   pull_request:
     branches:
       - main
+
+permissions:
+  checks: write
+  contents: write
+
 jobs:
   check:
     name: Lint and Prettier
