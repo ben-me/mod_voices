@@ -10,9 +10,9 @@
     class='relative opacity-55 max-h-dvh h-dvh object-cover 2xl:object-fill' width='3453' height='1440'
   />
   <div class='absolute inset-0 h-max m-auto grid gap-4 w-3/4 object-center place-items-center'>
-    <h2 class='text-6xl leading-22 font-meta text-shadow-lg text-shadow-black text-center my-[0_1rem]'>
-      Erwecke Charaktere <br>
-      mit echten Stimmen <br>
+    <h2 class='text-5xl leading-22 font-meta text-shadow-lg text-shadow-black text-center my-[0_1rem]'>
+      Erwecke Charaktere 
+      mit echten Stimmen 
       zum Leben.
     </h2>
     <div class='flex gap-4'>
