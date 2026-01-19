@@ -27,4 +27,4 @@ const handleAuth: Handle = async ({ event, resolve }) => {
   return svelteKitHandler({ event, resolve, auth, building });
 };
 
-export const handle: Handle = sequence(handleParaglide, handleAuth);
+export const handle = sequence(handleParaglide, handleAuth);

@@ -5,7 +5,7 @@ test.describe("homepage", () => {
   test("should not have any automatically detectable accessibility issues", async ({
     page,
   }) => {
-    await page.goto("https://your-site.com/"); // 3
+    await page.goto("/"); // 3
 
     const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
