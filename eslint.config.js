@@ -6,8 +6,6 @@ import svelte from "eslint-plugin-svelte";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import ts from "typescript-eslint";
-import eslintConfigPrettier from "eslint-config-prettier";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import svelteConfig from "./svelte.config.js";
 
@@ -20,9 +18,7 @@ export default defineConfig(
   ...svelte.configs.recommended,
   prettier,
   ...svelte.configs.prettier,
-  eslintConfigPrettier,
   jsxA11y.flatConfigs.recommended,
-  eslintPluginPrettierRecommended,
   {
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
     rules: {
