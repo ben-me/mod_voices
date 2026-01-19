@@ -4,6 +4,7 @@ import tseslint from "typescript-eslint";
 import css from "@eslint/css";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
@@ -22,4 +23,5 @@ export default defineConfig([
   },
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,
+  jsxA11y.flatConfigs.recommended,
 ]);
