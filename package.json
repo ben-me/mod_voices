@@ -55,7 +55,7 @@
     "@types/pg": "^8.16.0",
     "@vitest/browser": "^3.2.4",
     "drizzle-kit": "^0.31.8",
-    "drizzle-orm": "^0.44.7",
+    "drizzle-orm": "^0.45.1",
     "eslint": "^9.39.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.5",
