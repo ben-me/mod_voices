@@ -11,6 +11,9 @@ permissions:
   checks: write
   contents: write
 
+env:
+  HUSKY: 0
+
 jobs:
   check:
     name: Lint and Prettier
