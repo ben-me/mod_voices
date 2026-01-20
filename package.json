@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "better-auth": "^1.4.16",
+    "drizzle-valibot": "^0.4.2",
     "eslint-config-prettier": "^10.1.8",
     "pg": "^8.17.1",
     "runed": "^0.35.1",
