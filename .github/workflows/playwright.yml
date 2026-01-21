@@ -37,6 +37,6 @@ jobs:
         with:
           eslint: true
           prettier: true
-      - run: echo ${DATABASE_URL}
+      - run: echo $DATABASE_URL
       - name: A11y tests
         run: pnpm run test:e2e
