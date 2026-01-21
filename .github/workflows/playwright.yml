@@ -35,3 +35,5 @@ jobs:
         with:
           eslint: true
           prettier: true
+      - name: A11y tests
+        run: pnpm run test:e2e
