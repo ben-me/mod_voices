@@ -3,7 +3,7 @@
 </script>
 
 <header
-  class="absolute w-full z-1 flex font-semibold items-center justify-between p-2 md:px-8"
+  class="w-full z-1 flex font-semibold items-center justify-between p-2 md:px-8"
 >
   <h1 class="text-2xl font-bold">
     <a href={resolve("/")}><span class="text-primary">Mod</span>Voices</a>

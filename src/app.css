@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@plugin '@tailwindcss/forms';
+@import "./lib/styles/components.css";
+@plugin "@tailwindcss/forms";
 
 :root {
   --color-gold: oklch(0.903 0.184 98.42);
@@ -8,9 +9,13 @@
 }
 
 @theme {
-  --color-bg-dark: oklch(0.13 0 0);
-  --color-bg: oklch(0.25 0 0);
-  --color-bg-light: oklch(0.2 0 0);
+  --color-primary-light: oklch(from var(--color-gold) 1 c h);
+  --color-primary: oklch(from var(--color-gold) l c h);
+  --color-primary-dark: oklch(from var(--color-gold) 0.8 c h);
+
+  --color-bg-dark: oklch(from var(--color-bg) 0.18 c h);
+  --color-bg: oklch(0.15 0 0);
+  --color-bg-light: oklch(from var(--color-bg) 0.2 c h);
 
   --color-fg-light: oklch(1 0 0);
   --color-fg: oklch(0.94 0 0);
@@ -44,7 +49,7 @@
 
   body {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr auto;
     min-height: 100dvh;
     line-height: 1.5;
   }
