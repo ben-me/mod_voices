@@ -19,6 +19,7 @@ jobs:
     name: Lint and Prettier
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
