@@ -13,7 +13,7 @@ permissions:
 
 env:
   HUSKY: 0
-  DATABASE_URL: ${{ env.DATABASE_URL }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 jobs:
   check:
