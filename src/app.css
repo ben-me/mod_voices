@@ -1,14 +1,8 @@
-@import "tailwindcss";
-@import "./lib/styles/components.css";
-@plugin "@tailwindcss/forms";
-
 :root {
   --color-gold: oklch(0.903 0.184 98.42);
   --color-green: oklch(0.7483 0.245 142.63);
   --color-dark-blue: oklch(0.3569 0.037 206.28);
-}
 
-@theme {
   --color-primary-light: oklch(from var(--color-gold) 1 c h);
   --color-primary: oklch(from var(--color-gold) l c h);
   --color-primary-dark: oklch(from var(--color-gold) 0.8 c h);
@@ -22,37 +16,33 @@
   --color-fg-dark: oklch(0.88 0 0);
 
   --font-meta: "Metamorphous";
-}
 
-@theme inline {
   --color-primary: var(--color-gold);
   --color-secondary: var(--color-dark-blue);
   --color-accent: var(--color-green);
 }
 
-@layer base {
-  html {
-    @apply bg-bg text-white;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
-  }
+html {
+  @apply bg-bg text-white;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+}
 
-  body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100dvh;
-    line-height: 1.5;
-  }
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  line-height: 1.5;
 }
 
 @font-face {
