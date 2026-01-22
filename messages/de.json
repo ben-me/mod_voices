@@ -1,4 +1,11 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "hello_world": "Hello, {name} from de!"
+  "homeTitle": "Startseite",
+  "intro": "Erwecke Charaktere mit echten Stimmen zum Leben",
+  "modProjects": "Mod-Projekte",
+  "voiceActors": "Synchronsprecher",
+  "signup": "Registrieren",
+  "login": "Anmelden",
+  "findProject": "Projekt finden",
+  "offerVoice": "Stimme anbieten"
 }
