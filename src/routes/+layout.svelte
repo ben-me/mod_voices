@@ -1,16 +1,17 @@
 <script lang="ts">
+  import "./style.css";
   import favicon from "$lib/assets/favicon.svg";
   import Header from "$lib/Header.svelte";
-  import "../app.css";
 
   const { children } = $props();
 </script>
 
 <svelte:head>
   <link rel="icon" href={favicon} />
+  <meta name="color-scheme" />
 </svelte:head>
 
 <Header />
-<main>
+<main id="main-content">
   {@render children?.()}
 </main>

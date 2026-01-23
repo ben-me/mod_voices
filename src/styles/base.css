@@ -1,0 +1,118 @@
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    color: var(--c-fg);
+    background-color: var(--c-bg);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+
+  @font-face {
+    font-family: "Metamorphous";
+    src: url("Metamorphous.ttf") format("truetype");
+    font-weight: 400;
+  }
+
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+  }
+
+  h1,
+  .h1 {
+    font-size: var(--fs-5);
+  }
+
+  h2,
+  .h2 {
+    font-size: var(--fs-4);
+  }
+
+  h3,
+  .h3 {
+    font-size: var(--fs-3);
+  }
+
+  h4,
+  .h4 {
+    font-size: var(--fs-2);
+  }
+
+  h5,
+  .h5 {
+    font-size: var(--fs-1);
+  }
+
+  h6,
+  .h6,
+  p,
+  li,
+  a {
+    font-size: var(--fs-0);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    line-height: 1.2;
+  }
+
+  a,
+  button {
+    display: block;
+  }
+
+  .btn-primary {
+    appearance: none;
+    cursor: pointer;
+    border-radius: var(--br-1);
+    border: var(--c-gold) solid 1px;
+    color: var(--c-black);
+    background: var(--c-gold);
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: oklch(from var(--c-gold) 0.96 c h);
+    }
+  }
+
+  .btn-secondary {
+    appearance: none;
+    cursor: pointer;
+    border-radius: var(--br-1);
+    border: var(--c-gold-5) solid 1px;
+    color: var(--c-white);
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--c-gold-3);
+    }
+  }
+}

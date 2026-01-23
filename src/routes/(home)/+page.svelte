@@ -1,39 +1,78 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import hero from "$lib/assets/hero.jpg";
+  import { m } from "$lib/paraglide/messages";
 </script>
 
-<div class="relative">
+<svelte:head>
+  <title>{m.homeTitle()} - ModVoices</title>
+</svelte:head>
+
+<div class="hero">
   <img
     src={hero}
-    alt="Bild aus Gothic 1 und 2 mit Sicht auf das alte Lacker und die Stadt Khorinis"
-    class="relative opacity-55 max-h-dvh h-dvh object-cover 2xl:object-fill"
+    alt={m.heroAltText()}
+    class="hero__image"
     width="3453"
     height="1440"
   />
-  <div
-    class="absolute inset-0 h-max m-auto grid gap-4 w-3/4 object-center place-items-center"
-  >
-    <h2
-      class="text-5xl leading-22 font-meta text-shadow-lg text-shadow-black text-center my-[0_1rem]"
-    >
-      Erwecke Charaktere mit echten Stimmen zum Leben.
+  <div class="hero__texts">
+    <h2>
+      {m.intro()}
     </h2>
-    <div class="flex gap-4">
-      <a
-        href={resolve("/projects")}
-        class="px-4 py-2 bg-primary text-black font-semibold rounded border border-primary hover:bg-primary/80
-          transition duration-200"
-      >
-        Projekt finden
-      </a>
-      <a
-        href={resolve("/login")}
-        class="px-4 py-2 text-primary font-semibold rounded border border-primary hover:bg-primary/10
-          transition duration-200"
-      >
-        Stimme anbieten
+    <div class="hero__buttons">
+      <a href={resolve("/projects")} class="btn-primary">{m.findProject()}</a>
+      <a href={resolve("/login")} class="btn-secondary">
+        {m.offerVoice()}
       </a>
     </div>
   </div>
 </div>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100%;
+
+    img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      opacity: 55%;
+    }
+  }
+
+  .hero__texts {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    gap: 1rem;
+    width: 75%;
+    height: max-content;
+    place-items: center;
+    margin: auto;
+
+    h2 {
+      text-align: center;
+      font-family: var(--f-meta);
+      max-width: 30ch;
+      text-shadow:
+        0px 1px 2px var(--c-black),
+        0px 3px 2px var(--c-black),
+        0px 4px 8px var(--c-black);
+    }
+  }
+
+  .hero__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    @media (--above-sm) {
+      flex-direction: row;
+    }
+  }
+</style>
