@@ -46,10 +46,20 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
           BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
-      - run: mkdir -p /playwright-report/
+      - name: Debug - Show all files
+        if: always()
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== All files in workspace ==="
+          ls -la
+          echo "=== Looking for any HTML reports ==="
+          find . -name "*.html" -type f
+          echo "=== Looking for test-results or reports ==="
+          find . -type d -name "*report*" -o -name "*results*"
       - uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: /playwright-report/test.html
+          path: playwright-report/
           retention-days: 30
