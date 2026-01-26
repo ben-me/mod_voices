@@ -36,27 +36,24 @@ jobs:
         with:
           eslint: true
           prettier: true
-      - name: Build Website
-        run: pnpm run build
-      - name: Install Playwright browsers
-        run: pnpm dlx playwright install --with-deps
+      - uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+            key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+      - name: Install Playwright Browsers - Cached
+        run: npx playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
       - name: A11y tests
         run: pnpm run test:e2e
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
           BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
-      - name: Debug - Show all files
-        if: always()
-        run: |
-          echo "=== Current directory ==="
-          pwd
-          echo "=== All files in workspace ==="
-          ls -la
-          echo "=== Looking for any HTML reports ==="
-          find . -name "*.html" -type f
-          echo "=== Looking for test-results or reports ==="
-          find . -type d -name "*report*" -o -name "*results*"
       - uses: actions/upload-artifact@v6
         if: ${{ !cancelled() }}
         with:
