@@ -20,6 +20,9 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     environment: dev
+    defaults:
+      run:
+        working-directory: ./
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
