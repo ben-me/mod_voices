@@ -46,6 +46,7 @@ jobs:
           BETTER_AUTH_URL: ${{ secrets.BETTER_AUTH_URL }}
       - run: mkdir -p /playwright-report/
       - uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
         with:
           name: playwright-report
           path: /playwright-report/
