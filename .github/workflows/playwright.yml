@@ -36,6 +36,8 @@ jobs:
         with:
           eslint: true
           prettier: true
+      - name: Install Playwright browsers
+        run: pnpm dlx playwright install --with-deps
       - name: A11y tests
         run: pnpm run test:e2e
         env:
