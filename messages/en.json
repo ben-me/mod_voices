@@ -8,5 +8,8 @@
   "login": "Login",
   "findProject": "Find project",
   "postProject": "List project",
-  "offerVoice": "Offer voice"
+  "offerVoice": "Offer voice",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password"
 }

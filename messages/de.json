@@ -9,5 +9,8 @@
   "login": "Anmelden",
   "findProject": "Projekt finden",
   "postProject": "Projekt listen",
-  "offerVoice": "Stimme anbieten"
+  "offerVoice": "Stimme anbieten",
+  "username": "Nutzername",
+  "email": "Email",
+  "password": "Passwort"
 }
