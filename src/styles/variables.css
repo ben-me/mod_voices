@@ -13,63 +13,63 @@
   --c-black: oklch(0 0 0);
 
   /* Gold variations */
-  --c-gold-1: oklch(from var(--c-gold) l c h / 0.1);
-  --c-gold-2: oklch(from var(--c-gold) l c h / 0.2);
-  --c-gold-3: oklch(from var(--c-gold) l c h / 0.3);
-  --c-gold-4: oklch(from var(--c-gold) l c h / 0.4);
-  --c-gold-5: oklch(from var(--c-gold) l c h / 0.5);
-  --c-gold-6: oklch(from var(--c-gold) l c h / 0.6);
-  --c-gold-7: oklch(from var(--c-gold) l c h / 0.7);
-  --c-gold-8: oklch(from var(--c-gold) l c h / 0.8);
-  --c-gold-9: oklch(from var(--c-gold) l c h / 0.9);
+  --c-gold-1: oklch(from var(--c-gold) calc(l * 0.1) c h);
+  --c-gold-2: oklch(from var(--c-gold) calc(l * 0.2) c h);
+  --c-gold-3: oklch(from var(--c-gold) calc(l * 0.3) c h);
+  --c-gold-4: oklch(from var(--c-gold) calc(l * 0.4) c h);
+  --c-gold-5: oklch(from var(--c-gold) calc(l * 0.5) c h);
+  --c-gold-6: oklch(from var(--c-gold) calc(l * 0.6) c h);
+  --c-gold-7: oklch(from var(--c-gold) calc(l * 0.7) c h);
+  --c-gold-8: oklch(from var(--c-gold) calc(l * 0.8) c h);
+  --c-gold-9: oklch(from var(--c-gold) calc(l * 0.9) c h);
 
   /* Green variations */
-  --c-green-1: oklch(from var(--c-green) l c h / 0.1);
-  --c-green-2: oklch(from var(--c-green) l c h / 0.2);
-  --c-green-3: oklch(from var(--c-green) l c h / 0.3);
-  --c-green-4: oklch(from var(--c-green) l c h / 0.4);
-  --c-green-5: oklch(from var(--c-green) l c h / 0.5);
-  --c-green-6: oklch(from var(--c-green) l c h / 0.6);
-  --c-green-7: oklch(from var(--c-green) l c h / 0.7);
-  --c-green-8: oklch(from var(--c-green) l c h / 0.8);
-  --c-green-9: oklch(from var(--c-green) l c h / 0.9);
+  --c-green-1: oklch(from var(--c-green) calc(l * 0.1) c h);
+  --c-green-2: oklch(from var(--c-green) calc(l * 0.2) c h);
+  --c-green-3: oklch(from var(--c-green) calc(l * 0.3) c h);
+  --c-green-4: oklch(from var(--c-green) calc(l * 0.4) c h);
+  --c-green-5: oklch(from var(--c-green) calc(l * 0.5) c h);
+  --c-green-6: oklch(from var(--c-green) calc(l * 0.6) c h);
+  --c-green-7: oklch(from var(--c-green) calc(l * 0.7) c h);
+  --c-green-8: oklch(from var(--c-green) calc(l * 0.8) c h);
+  --c-green-9: oklch(from var(--c-green) calc(l * 0.9) c h);
 
   /* Dark Blue variations */
-  --c-dark-blue-1: oklch(from var(--c-dark-blue) l c h / 0.1);
-  --c-dark-blue-2: oklch(from var(--c-dark-blue) l c h / 0.2);
-  --c-dark-blue-3: oklch(from var(--c-dark-blue) l c h / 0.3);
-  --c-dark-blue-4: oklch(from var(--c-dark-blue) l c h / 0.4);
-  --c-dark-blue-5: oklch(from var(--c-dark-blue) l c h / 0.5);
-  --c-dark-blue-6: oklch(from var(--c-dark-blue) l c h / 0.6);
-  --c-dark-blue-7: oklch(from var(--c-dark-blue) l c h / 0.7);
-  --c-dark-blue-8: oklch(from var(--c-dark-blue) l c h / 0.8);
-  --c-dark-blue-9: oklch(from var(--c-dark-blue) l c h / 0.9);
+  --c-dark-blue-1: oklch(from var(--c-dark-blue) calc(l * 0.1) c h);
+  --c-dark-blue-2: oklch(from var(--c-dark-blue) calc(l * 0.2) c h);
+  --c-dark-blue-3: oklch(from var(--c-dark-blue) calc(l * 0.3) c h);
+  --c-dark-blue-4: oklch(from var(--c-dark-blue) calc(l * 0.4) c h);
+  --c-dark-blue-5: oklch(from var(--c-dark-blue) calc(l * 0.5) c h);
+  --c-dark-blue-6: oklch(from var(--c-dark-blue) calc(l * 0.6) c h);
+  --c-dark-blue-7: oklch(from var(--c-dark-blue) calc(l * 0.7) c h);
+  --c-dark-blue-8: oklch(from var(--c-dark-blue) calc(l * 0.8) c h);
+  --c-dark-blue-9: oklch(from var(--c-dark-blue) calc(l * 0.9) c h);
 
   /* White variations */
-  --c-white-1: oklch(from var(--c-white) l c h / 0.1);
-  --c-white-2: oklch(from var(--c-white) l c h / 0.2);
-  --c-white-3: oklch(from var(--c-white) l c h / 0.3);
-  --c-white-4: oklch(from var(--c-white) l c h / 0.4);
-  --c-white-5: oklch(from var(--c-white) l c h / 0.5);
-  --c-white-6: oklch(from var(--c-white) l c h / 0.6);
-  --c-white-7: oklch(from var(--c-white) l c h / 0.7);
-  --c-white-8: oklch(from var(--c-white) l c h / 0.8);
-  --c-white-9: oklch(from var(--c-white) l c h / 0.9);
+  --c-white-1: oklch(from var(--c-white) 0.1 c h);
+  --c-white-2: oklch(from var(--c-white) 0.2 c h);
+  --c-white-3: oklch(from var(--c-white) 0.3 c h);
+  --c-white-4: oklch(from var(--c-white) 0.4 c h);
+  --c-white-5: oklch(from var(--c-white) 0.5 c h);
+  --c-white-6: oklch(from var(--c-white) 0.6 c h);
+  --c-white-7: oklch(from var(--c-white) 0.7 c h);
+  --c-white-8: oklch(from var(--c-white) 0.8 c h);
+  --c-white-9: oklch(from var(--c-white) 0.9 c h);
 
   /* Black variations */
-  --c-black-1: oklch(from var(--c-black) l c h / 0.1);
-  --c-black-2: oklch(from var(--c-black) l c h / 0.2);
-  --c-black-3: oklch(from var(--c-black) l c h / 0.3);
-  --c-black-4: oklch(from var(--c-black) l c h / 0.4);
-  --c-black-5: oklch(from var(--c-black) l c h / 0.5);
-  --c-black-6: oklch(from var(--c-black) l c h / 0.6);
-  --c-black-7: oklch(from var(--c-black) l c h / 0.7);
-  --c-black-8: oklch(from var(--c-black) l c h / 0.8);
-  --c-black-9: oklch(from var(--c-black) l c h / 0.9);
+  --c-black-1: oklch(from var(--c-black) 0.1 c h);
+  --c-black-2: oklch(from var(--c-black) 0.2 c h);
+  --c-black-3: oklch(from var(--c-black) 0.3 c h);
+  --c-black-4: oklch(from var(--c-black) 0.4 c h);
+  --c-black-5: oklch(from var(--c-black) 0.5 c h);
+  --c-black-6: oklch(from var(--c-black) 0.6 c h);
+  --c-black-7: oklch(from var(--c-black) 0.7 c h);
+  --c-black-8: oklch(from var(--c-black) 0.8 c h);
+  --c-black-9: oklch(from var(--c-black) 0.9 c h);
 
   /* Foreground and background colors */
   --c-fg: light-dark(var(--c-black), var(--c-white));
-  --c-bg: light-dark(var(--c-white), var(--c-black-9));
+  --c-bg: light-dark(var(--c-white-9), var(--c-black-2));
 
   /* Font sizes */
   --fs--2: clamp(0.6331rem, 0.7111rem + -0.0831vw, 0.6944rem);

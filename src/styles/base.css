@@ -85,34 +85,59 @@
     display: block;
   }
 
-  .btn-primary {
+  .btn {
+    --b-bg-color: var(--c-gold);
+    --b-text-color: var(--c-black);
+    --b-border-color: var(--c-gold);
     appearance: none;
     cursor: pointer;
     border-radius: var(--br-1);
-    border: var(--c-gold) solid 1px;
-    color: var(--c-black);
-    background: var(--c-gold);
-    padding: 0.75rem 1.25rem;
+    border: var(--b-border-color) solid 1px;
+    color: var(--b-text-color);
+    background: var(--b-bg-color);
+    padding: 0.25em 1em;
     font-weight: 600;
-    transition: background 0.2s ease;
+    transition: all 0.2s ease;
 
-    &:hover {
-      background: oklch(from var(--c-gold) 0.96 c h);
+    @media (--above-md) {
+      padding: 0.5em 1.25em;
     }
-  }
-
-  .btn-secondary {
-    appearance: none;
-    cursor: pointer;
-    border-radius: var(--br-1);
-    border: var(--c-gold-5) solid 1px;
-    color: var(--c-white);
-    padding: 0.75rem 1.25rem;
-    font-weight: 600;
-    transition: background 0.2s ease;
 
     &:hover {
-      background: var(--c-gold-3);
+      background: oklch(from var(--b-bg-color) calc(l * 1.1) c h);
+      border-color: oklch(from var(--b-border-color) calc(l * 1.1) c h);
+      color: oklch(from var(--b-text-color) calc(l * 1.1) c h);
+    }
+
+    &.outline {
+      background: transparent;
+      color: var(--b-bg-color);
+
+      &:hover {
+        background: oklch(from var(--b-bg-color) l c h / 0.2);
+      }
+    }
+
+    &.secondary {
+      --b-bg-color: var(--c-green);
+      --b-text-color: var(--c-black);
+      --b-border-color: var(--c-green);
+    }
+
+    &.tertiary {
+      --b-bg-color: var(--c-dark-blue);
+      --b-text-color: var(--c-white);
+      --b-border-color: var(--c-dark-blue);
+    }
+
+    &.ghost {
+      background-color: transparent;
+      --b-text-color: var(--b-bg-color);
+      border: none;
+
+      &:hover {
+        background: oklch(from var(--b-bg-color) l c h / 0.2);
+      }
     }
   }
 }

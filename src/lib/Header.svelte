@@ -1,39 +1,94 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import { m } from "./paraglide/messages";
 </script>
 
-<header
-  class="w-full z-1 flex font-semibold items-center justify-between p-2 md:px-8"
->
-  <h1 class="text-2xl font-bold">
-    <a href={resolve("/")}><span class="text-primary">Mod</span>Voices</a>
-  </h1>
-  <nav>
-    <ul class="flex items-center gap-4">
-      <li>
-        <a href={resolve("/projects")} class="inline-block p-2">Mod-Projekte</a>
-      </li>
-      <li>
-        <a href={resolve("/voices")} class="inline-block p-2"
-          >Synchronsprecher</a
-        >
-      </li>
-      <li>
-        <a
-          href={resolve("/signup")}
-          class="inline-block rounded-xs text-primary border-2 border-primary px-4 py-0.5"
-        >
-          Registrieren
-        </a>
-      </li>
-      <li>
-        <a
-          href={resolve("/login")}
-          class="inline-block rounded-xs border-3 border-primary bg-primary text-black px-4 py-0.5 font-semibold"
-        >
-          Login
-        </a>
-      </li>
-    </ul>
-  </nav>
+<header>
+  <div>
+    <h1>
+      <a href={resolve("/")}><span>Mod</span>Voices</a>
+    </h1>
+    <nav>
+      <ul>
+        <li>
+          <a href={resolve("/projects")} class="header__link"
+            >{m.modProjects()}</a
+          >
+        </li>
+        <li>
+          <a href={resolve("/voices")} class="header__link">{m.voiceActors()}</a
+          >
+        </li>
+        <li>
+          <a href={resolve("/signup")} class="btn ghost">{m.signup()}</a>
+        </li>
+        <li>
+          <a href={resolve("/login")} class="btn secondary ghost">{m.login()}</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<style>
+  header {
+    color-scheme: dark;
+    background-color: var(--c-bg);
+    z-index: 1;
+    padding-inline: 0.5rem;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: min(80rem, 100%);
+      margin-inline: auto;
+    }
+
+    h1 {
+      a {
+        font-size: var(--fs-3);
+        text-decoration: none;
+        color: var(--c-white);
+        padding-block: 0.75rem;
+
+        @media (--above-md) {
+          font-size: var(--fs-2);
+          padding-block: 0;
+        }
+
+        span {
+          color: var(--c-gold);
+        }
+      }
+    }
+
+    nav {
+      display: none;
+
+      @media (--above-md) {
+        display: block;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      a {
+        padding-inline: 1rem;
+      }
+
+      .header__link {
+        padding-block: 1rem;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: oklch(from var(--c-black) 0.4 c h);
+        }
+      }
+    }
+  }
+</style>

@@ -21,8 +21,8 @@
       {m.intro()}
     </h2>
     <div class="hero__buttons">
-      <a href={resolve("/projects")} class="btn-primary">{m.findProject()}</a>
-      <a href={resolve("/login")} class="btn-secondary">
+      <a href={resolve("/projects")} class="btn">{m.postProject()}</a>
+      <a href={resolve("/login")} class="btn outline">
         {m.offerVoice()}
       </a>
     </div>
@@ -31,6 +31,9 @@
 
 <style>
   .hero {
+    color-scheme: dark;
+    background-color: var(--c-bg);
+    color: var(--c-fg);
     position: relative;
     height: 100%;
 
