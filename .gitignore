@@ -3,6 +3,7 @@ node_modules
 .git
 
 # Output
+drizzle
 .output
 .vercel
 .netlify

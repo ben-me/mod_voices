@@ -1,5 +1,13 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  timestamp,
+  boolean,
+  index,
+  varchar,
+  jsonb,
+} from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -94,6 +102,63 @@ export const twoFactor = pgTable(
     index("twoFactor_userId_idx").on(table.userId),
   ],
 );
+
+export const projectListing = pgTable("project_listing", {
+  id: text("id").primaryKey(),
+  title: varchar("title", { length: 256 }),
+  description: text("description"),
+  active: boolean("open").default(false).notNull(),
+  voiceDescriptions: jsonb("voice_descriptions").$type<
+    {
+      id: string;
+      gender: string;
+      pitch: string;
+      isFilled: boolean;
+      description: string;
+    }[]
+  >(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+});
+
+export const voiceOffer = pgTable("voice_offer", {
+  id: text("id").primaryKey(),
+  title: varchar("title", { length: 256 }),
+  description: text("description"),
+  active: boolean("active").default(false).notNull(),
+  exampleURL: text("example_url"),
+  languages: jsonb("langauges").$type<string[]>(),
+  type: text("type"),
+  experience: text("experience"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at")
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+});
+
+export const appication = pgTable("application", {
+  id: text("id").primaryKey(),
+  voiceActorId: text("voice_actor_id")
+    .notNull()
+    .references(() => user.id),
+  projectId: text("project_id")
+    .notNull()
+    .references(() => projectListing.id),
+  status: text("status")
+    .$type<"pending" | "accepted" | "rejected">()
+    .notNull()
+    .default("pending"),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  respondedAt: timestamp("responded_at"),
+});
 
 export const userRelations = relations(user, ({ many }) => ({
   sessions: many(session),
