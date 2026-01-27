@@ -11,13 +11,12 @@
     <nav>
       <ul>
         <li>
-          <a href={resolve("/projects")} class="header__link"
-            >{m.modProjects()}</a
-          >
+          <a href={resolve("/projects")} class="header-link">
+            {m.modProjects()}
+          </a>
         </li>
         <li>
-          <a href={resolve("/voices")} class="header__link">{m.voiceActors()}</a
-          >
+          <a href={resolve("/voices")} class="header-link">{m.voiceActors()}</a>
         </li>
         <li>
           <a href={resolve("/signup")} class="btn ghost">{m.signup()}</a>
@@ -38,14 +37,6 @@
     z-index: 1;
     padding-inline: 0.5rem;
 
-    div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: min(80rem, 100%);
-      margin-inline: auto;
-    }
-
     h1 {
       a {
         font-size: var(--fs-3);
@@ -64,29 +55,36 @@
       }
     }
 
-    nav {
-      display: none;
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: min(80rem, 100%);
+      margin-inline: auto;
 
-      @media (--above-md) {
-        display: block;
-      }
+      nav {
+        display: none;
 
-      ul {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
+        @media (--above-md) {
+          display: block;
+        }
 
-      a {
-        padding-inline: 1rem;
-      }
+        ul {
+          display: flex;
+          align-items: center;
+        }
 
-      .header__link {
-        padding-block: 1rem;
-        transition: background-color 0.2s ease;
+        a {
+          padding-inline: 1rem;
+        }
 
-        &:hover {
-          background-color: oklch(from var(--c-black) 0.4 c h);
+        .header-link {
+          padding-block: 1rem;
+          transition: background-color 0.2s ease;
+
+          &:hover {
+            background-color: var(--c-black-4);
+          }
         }
       }
     }
