@@ -6,11 +6,11 @@
   @custom-media --above-xl (width >= 80em);
 
   /* Colors */
-  --c-gold: oklch(0.903 0.184 98.42);
-  --c-green: oklch(0.7483 0.245 142.63);
-  --c-dark-blue: oklch(0.3569 0.037 206.28);
-  --c-white: oklch(1 0 0);
-  --c-black: oklch(0 0 0);
+  --c-gold: oklch(93% 0.184 98.42deg);
+  --c-green: oklch(74.83% 0.245 142.63deg);
+  --c-dark-blue: oklch(35.69% 0.037 206.28deg);
+  --c-white: oklch(100% 0 0deg);
+  --c-black: oklch(0% 0 0deg);
 
   /* Gold variations */
   --c-gold-1: oklch(from var(--c-gold) calc(l * 0.1) c h);
@@ -46,26 +46,26 @@
   --c-dark-blue-9: oklch(from var(--c-dark-blue) calc(l * 0.9) c h);
 
   /* White variations */
-  --c-white-1: oklch(from var(--c-white) 0.1 c h);
-  --c-white-2: oklch(from var(--c-white) 0.2 c h);
-  --c-white-3: oklch(from var(--c-white) 0.3 c h);
-  --c-white-4: oklch(from var(--c-white) 0.4 c h);
-  --c-white-5: oklch(from var(--c-white) 0.5 c h);
-  --c-white-6: oklch(from var(--c-white) 0.6 c h);
-  --c-white-7: oklch(from var(--c-white) 0.7 c h);
-  --c-white-8: oklch(from var(--c-white) 0.8 c h);
-  --c-white-9: oklch(from var(--c-white) 0.9 c h);
+  --c-white-1: oklch(from var(--c-white) 10% c h);
+  --c-white-2: oklch(from var(--c-white) 20% c h);
+  --c-white-3: oklch(from var(--c-white) 30% c h);
+  --c-white-4: oklch(from var(--c-white) 40% c h);
+  --c-white-5: oklch(from var(--c-white) 50% c h);
+  --c-white-6: oklch(from var(--c-white) 60% c h);
+  --c-white-7: oklch(from var(--c-white) 70% c h);
+  --c-white-8: oklch(from var(--c-white) 80% c h);
+  --c-white-9: oklch(from var(--c-white) 90% c h);
 
   /* Black variations */
-  --c-black-1: oklch(from var(--c-black) 0.1 c h);
-  --c-black-2: oklch(from var(--c-black) 0.2 c h);
-  --c-black-3: oklch(from var(--c-black) 0.3 c h);
-  --c-black-4: oklch(from var(--c-black) 0.4 c h);
-  --c-black-5: oklch(from var(--c-black) 0.5 c h);
-  --c-black-6: oklch(from var(--c-black) 0.6 c h);
-  --c-black-7: oklch(from var(--c-black) 0.7 c h);
-  --c-black-8: oklch(from var(--c-black) 0.8 c h);
-  --c-black-9: oklch(from var(--c-black) 0.9 c h);
+  --c-black-1: oklch(from var(--c-black) 10% c h);
+  --c-black-2: oklch(from var(--c-black) 20% c h);
+  --c-black-3: oklch(from var(--c-black) 30% c h);
+  --c-black-4: oklch(from var(--c-black) 40% c h);
+  --c-black-5: oklch(from var(--c-black) 50% c h);
+  --c-black-6: oklch(from var(--c-black) 60% c h);
+  --c-black-7: oklch(from var(--c-black) 70% c h);
+  --c-black-8: oklch(from var(--c-black) 80% c h);
+  --c-black-9: oklch(from var(--c-black) 90% c h);
 
   /* Foreground and background colors */
   --c-fg: light-dark(var(--c-black), var(--c-white));
