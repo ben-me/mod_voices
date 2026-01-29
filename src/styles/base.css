@@ -21,7 +21,7 @@
   }
 
   @font-face {
-    font-family: "Metamorphous";
+    font-family: Metamorphous;
     src: url("Metamorphous.ttf") format("truetype");
     font-weight: 400;
   }
@@ -89,21 +89,23 @@
     --b-bg-color: var(--c-gold);
     --b-text-color: var(--c-black);
     --b-border-color: var(--c-gold);
+
     appearance: none;
     cursor: pointer;
     border-radius: var(--br-1);
     border: var(--b-border-color) solid 1px;
     color: var(--b-text-color);
     background: var(--b-bg-color);
-    padding: 0.25em 1em;
+    padding: 0.5em 1em;
     font-weight: 600;
     transition: all 0.2s ease;
 
-    @media (--above-md) {
-      padding: 0.5em 1.25em;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: oklch(from var(--b-bg-color) calc(l * 1.1) c h);
       border-color: oklch(from var(--b-border-color) calc(l * 1.1) c h);
       color: oklch(from var(--b-text-color) calc(l * 1.1) c h);
@@ -111,10 +113,12 @@
 
     &.outline {
       background: transparent;
-      color: var(--b-bg-color);
+      color: var(--c-fg);
+      border-color: var(--c-fg);
 
       &:hover {
-        background: oklch(from var(--b-bg-color) l c h / 0.2);
+        background: var(--c-fg);
+        border-color: var(--c-fg);
       }
     }
 
@@ -131,12 +135,13 @@
     }
 
     &.ghost {
-      background-color: transparent;
       --b-text-color: var(--b-bg-color);
+
       border: none;
+      background-color: transparent;
 
       &:hover {
-        background: oklch(from var(--b-bg-color) l c h / 0.2);
+        background: oklch(from var(--b-bg-color) l c h / 20%);
       }
     }
   }
