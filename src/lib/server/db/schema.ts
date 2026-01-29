@@ -143,7 +143,7 @@ export const voiceOffer = pgTable("voice_offer", {
     .notNull(),
 });
 
-export const appication = pgTable("application", {
+export const application = pgTable("application", {
   id: text("id").primaryKey(),
   voiceActorId: text("voice_actor_id")
     .notNull()
