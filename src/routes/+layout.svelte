@@ -15,3 +15,9 @@
 <main id="main-content">
   {@render children?.()}
 </main>
+
+<style>
+  main {
+    padding-inline: 0.5rem;
+  }
+</style>
