@@ -17,7 +17,7 @@ export const validatePassword = v.pipe(
     v.regex(/[a-z]/, m.passwordLowercase()),
     v.regex(/[A-Z]/, m.passwordUppercase()),
     v.regex(/[0-9]/, m.passwordNumber()),
-    v.regex(/[!@#$%&*()-=_+]/, m.passwordSymbol()),
+    v.regex(/[-!@#$%&*()=_+]/, m.passwordSymbol()),
   ),
 );
 

@@ -36,6 +36,7 @@
     background-color: var(--c-bg);
     z-index: 1;
     padding-inline: 0.5rem;
+    border-bottom: 2px solid var(--c-black-3);
 
     h1 {
       a {
