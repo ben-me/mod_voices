@@ -1,42 +1,18 @@
-<script lang="ts" generics="T">
+<script lang="ts">
   import type { RemoteFormIssue } from "@sveltejs/kit";
-  import { useDebounce } from "runed";
   import type { HTMLInputAttributes } from "svelte/elements";
-  import * as v from "valibot";
 
   type Props = {
-    validateOn: v.GenericSchema<T>;
-    issues?: RemoteFormIssue[] | undefined;
+    inputIssues?: RemoteFormIssue[];
   } & HTMLInputAttributes;
 
-  const { validateOn, issues, ...rest }: Props = $props();
+  let { inputIssues, ...rest }: Props = $props();
   let value = $state("");
-  let inputIssues: RemoteFormIssue[] | v.BaseIssue<unknown>[] | undefined =
-    $derived(issues);
-
-  const validate_input = useDebounce(() => {
-    if (value === "") {
-      inputIssues = undefined;
-      return;
-    }
-    try {
-      v.parse(validateOn, value);
-      inputIssues = undefined;
-    } catch (error) {
-      const validation_error = error as v.ValiError<typeof validateOn>;
-      inputIssues = validation_error.issues;
-    }
-  }, 350);
 </script>
 
-<input
-  {...rest}
-  oninput={validate_input}
-  data-input-state={inputIssues && inputIssues.length > 0 ? "error" : null}
-  aria-invalid={inputIssues && inputIssues.length > 0}
-  bind:value
-/>
-{#if inputIssues}
+<input {...rest} bind:value data-input-state={inputIssues ? "error" : null} />
+
+{#if inputIssues && inputIssues?.length > 0}
   <ul role="list">
     {#each inputIssues as issue (issue.message)}
       <li>{issue.message}</li>

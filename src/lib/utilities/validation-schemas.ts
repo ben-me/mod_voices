@@ -26,3 +26,9 @@ export const validateEmail = v.pipe(
   v.nonEmpty(m.emailRequired()),
   v.email(m.emailInvalid()),
 );
+
+export const user_create_schema = v.object({
+  name: validateUsername,
+  _password: validatePassword,
+  email: validateEmail,
+});
