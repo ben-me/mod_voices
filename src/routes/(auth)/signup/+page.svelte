@@ -4,6 +4,13 @@
   import { sign_up } from "./signup.remote";
   import Input from "$lib/components/Input.svelte";
   import { user_create_schema } from "$lib/utilities/validation-schemas";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    if (sign_up.fields.allIssues()) {
+      sign_up.validate();
+    }
+  });
 </script>
 
 <svelte:head>

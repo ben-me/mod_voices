@@ -9,7 +9,6 @@ export const sign_up = form(
   user_create_schema,
   async ({ name, email, _password }, issue) => {
     const user_exists = await get_user(name);
-    console.log(user_exists);
     if (user_exists) {
       invalid(issue.name("Username already taken"));
     }
