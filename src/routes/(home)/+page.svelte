@@ -8,20 +8,20 @@
   <title>{m.homeTitle()} - ModVoices</title>
 </svelte:head>
 
+<img
+  src={hero}
+  alt={m.heroAltText()}
+  class="hero-image"
+  width="3453"
+  height="1440"
+/>
 <div class="hero">
-  <img
-    src={hero}
-    alt={m.heroAltText()}
-    class="hero__image"
-    width="3453"
-    height="1440"
-  />
-  <div class="hero__texts">
+  <div class="hero-texts">
     <h2>
       {m.intro()}
     </h2>
-    <div class="hero__buttons">
-      <a href={resolve("/projects")} class="btn">{m.postProject()}</a>
+    <div class="hero-buttons">
+      <a href={resolve("/projects")} class="btn">{m.discoverProject()}</a>
       <a href={resolve("/login")} class="btn outline">
         {m.offerVoice()}
       </a>
@@ -30,24 +30,22 @@
 </div>
 
 <style>
+  img {
+    position: absolute;
+    inset: 0;
+    height: 100dvh;
+    object-fit: cover;
+    opacity: 0.7;
+  }
+
   .hero {
     color-scheme: dark;
-    background-color: var(--c-bg);
     color: var(--c-fg);
     position: relative;
     height: 100%;
-
-    img {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      max-height: 100%;
-      object-fit: cover;
-      opacity: 55%;
-    }
   }
 
-  .hero__texts {
+  .hero-texts {
     position: absolute;
     inset: 0;
     display: grid;
@@ -62,13 +60,13 @@
       font-family: var(--f-meta);
       max-width: 30ch;
       text-shadow:
-        0px 1px 2px var(--c-black),
-        0px 3px 2px var(--c-black),
-        0px 4px 8px var(--c-black);
+        0 1px 2px var(--c-black),
+        0 3px 2px var(--c-black),
+        0 4px 8px var(--c-black);
     }
   }
 
-  .hero__buttons {
+  .hero-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
