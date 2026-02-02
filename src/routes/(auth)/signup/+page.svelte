@@ -42,7 +42,7 @@
     </button>
     <p>
       {m.accountExists()}
-      <a href={resolve("/login")}>{m.signupHere()}</a>
+      <a href={resolve("/login")}>{m.loginHere()}</a>
     </p>
   </div>
 </form>
@@ -76,11 +76,11 @@
     }
 
     div {
-      margin-block-start: 1.25rem;
+      margin-block-start: 0.5rem;
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      gap: 0.5rem;
+      gap: 1rem;
       text-align: center;
 
       a {
