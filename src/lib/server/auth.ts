@@ -28,5 +28,8 @@ export const auth = betterAuth({
     enabled: true,
   },
   plugins: [sveltekitCookies(getRequestEvent), admin(), twoFactor()],
+  advanced: {
+    cookiePrefix: "mod-voices",
+  },
   secret: env.BETTER_AUTH_SECRET,
 });
