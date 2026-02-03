@@ -1,3 +1,4 @@
+import { primaryKey } from "drizzle-orm/cockroach-core";
 import {
   pgTable,
   text,
@@ -106,16 +107,7 @@ export const projectListing = pgTable("project_listing", {
   id: text("id").primaryKey(),
   title: varchar("title", { length: 256 }),
   description: text("description"),
-  active: boolean("open").default(false).notNull(),
-  voiceDescriptions: jsonb("voice_descriptions").$type<
-    {
-      id: string;
-      gender: string;
-      pitch: string;
-      isFilled: boolean;
-      description: string;
-    }[]
-  >(),
+  active: boolean("active").default(false).notNull(),
   userId: text("user_id")
     .notNull()
     .references(() => user.id, { onDelete: "cascade" }),
@@ -125,6 +117,21 @@ export const projectListing = pgTable("project_listing", {
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
 });
+
+export const voiceDescription = pgTable(
+  "voice_descriptions",
+  {
+    id: text("id"),
+    projectId: text("project_id")
+      .notNull()
+      .references(() => projectListing.id, { onDelete: "cascade" }),
+    gender: varchar("gender", { length: 50 }),
+    pitch: text("pitch"),
+    filled: boolean("filled").default(false).notNull(),
+    description: text("description"),
+  },
+  (table) => [primaryKey({ columns: [table.id, table.projectId] })],
+);
 
 export const voiceOffer = pgTable("voice_offer", {
   id: text("id").primaryKey(),

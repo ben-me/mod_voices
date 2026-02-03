@@ -36,6 +36,7 @@
     "better-auth": "^1.4.16",
     "drizzle-orm": "1.0.0-beta.12-a5629fb",
     "drizzle-valibot": "^0.4.2",
+    "nanoid": "^5.1.6",
     "pg": "^8.17.1",
     "runed": "^0.35.1",
     "valibot": "^1.2.0"
