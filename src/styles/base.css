@@ -22,7 +22,7 @@
 
   @font-face {
     font-family: Metamorphous;
-    src: url("Metamorphous.ttf") format("truetype");
+    src: url("/Metamorphous.ttf") format("truetype");
     font-weight: 400;
   }
 
