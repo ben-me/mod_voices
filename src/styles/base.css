@@ -114,7 +114,6 @@
 
     appearance: none;
     cursor: pointer;
-    border-radius: var(--br-1);
     border: var(--b-border-color) solid 1px;
     color: var(--b-text-color);
     background: var(--b-bg-color);

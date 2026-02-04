@@ -65,7 +65,6 @@
     max-width: 25em;
     gap: 1rem;
     padding: 1.5rem 2rem 2rem;
-    border-radius: var(--br-1);
 
     label {
       width: 100%;
