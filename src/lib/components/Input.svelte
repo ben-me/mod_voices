@@ -6,8 +6,7 @@
     inputIssues?: RemoteFormIssue[];
   } & HTMLInputAttributes;
 
-  let { inputIssues, ...rest }: Props = $props();
-  let value = $state("");
+  let { inputIssues, value = $bindable(), ...rest }: Props = $props();
 </script>
 
 <input {...rest} bind:value data-input-state={inputIssues ? "error" : null} />
@@ -21,19 +20,6 @@
 {/if}
 
 <style>
-  input {
-    margin-block-start: 0.25rem;
-    border: 2px var(--c-black-8) solid;
-    background-color: var(--c-white);
-    padding: 0.5rem;
-    color: var(--c-black);
-    border-radius: var(--br-1);
-
-    &[data-input-state="error"] {
-      border-color: red;
-    }
-  }
-
   ul {
     margin-block-start: 0.25rem;
   }

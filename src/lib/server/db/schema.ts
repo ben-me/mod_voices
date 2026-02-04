@@ -7,6 +7,8 @@ import {
   index,
   varchar,
   jsonb,
+  serial,
+  integer,
 } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
@@ -104,8 +106,8 @@ export const twoFactor = pgTable(
 );
 
 export const projectListing = pgTable("project_listing", {
-  id: text("id").primaryKey(),
-  title: varchar("title", { length: 256 }),
+  id: serial("id").primaryKey(),
+  title: varchar("title", { length: 256 }).notNull().unique(),
   description: text("description"),
   active: boolean("active").default(false).notNull(),
   userId: text("user_id")
@@ -121,8 +123,8 @@ export const projectListing = pgTable("project_listing", {
 export const voiceDescription = pgTable(
   "voice_descriptions",
   {
-    id: text("id"),
-    projectId: text("project_id")
+    id: serial(),
+    projectId: integer("project_id")
       .notNull()
       .references(() => projectListing.id, { onDelete: "cascade" }),
     gender: varchar("gender", { length: 50 }),
@@ -134,7 +136,7 @@ export const voiceDescription = pgTable(
 );
 
 export const voiceOffer = pgTable("voice_offer", {
-  id: text("id").primaryKey(),
+  id: serial("id").primaryKey(),
   title: varchar("title", { length: 256 }),
   description: text("description"),
   active: boolean("active").default(false).notNull(),
@@ -154,7 +156,7 @@ export const application = pgTable("application", {
   voiceActorId: text("voice_actor_id")
     .notNull()
     .references(() => user.id),
-  projectId: text("project_id")
+  projectId: integer("project_id")
     .notNull()
     .references(() => projectListing.id),
   status: text("status")

@@ -85,6 +85,28 @@
     display: block;
   }
 
+  input,
+  select,
+  textarea {
+    display: block;
+    margin-block-start: 0.25rem;
+    border: 2px var(--c-black-8) solid;
+    background-color: oklch(from var(--c-white) l c h / 93%);
+    padding: 0.35rem;
+    color: var(--c-black);
+    font-size: var(--fs-0);
+    font-weight: normal;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    &[data-input-state="error"] {
+      border-color: red;
+    }
+  }
+
   .btn {
     --b-bg-color: var(--c-gold);
     --b-text-color: var(--c-black);
@@ -113,8 +135,8 @@
 
     &.outline {
       background: transparent;
-      color: var(--c-fg);
-      border-color: var(--c-fg);
+      color: var(--c-white);
+      border-color: var(--c-white);
 
       &:hover {
         background: var(--c-fg);

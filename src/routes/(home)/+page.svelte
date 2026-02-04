@@ -42,7 +42,7 @@
 
   .hero {
     color-scheme: dark;
-    color: var(--c-fg);
+    color: var(--c-white);
     position: relative;
     height: 100%;
   }

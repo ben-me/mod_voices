@@ -9,7 +9,8 @@
   --c-gold: oklch(93% 0.184 98.42deg);
   --c-green: oklch(74.83% 0.245 142.63deg);
   --c-dark-blue: oklch(35.69% 0.037 206.28deg);
-  --c-white: oklch(100% 0 0deg);
+  --c-brown: oklch(72.62% 0.07 82.85deg);
+  --c-white: oklch(100% 0 0deg / 95%);
   --c-black: oklch(0% 0 0deg);
 
   /* Gold variations */
@@ -68,8 +69,8 @@
   --c-black-9: oklch(from var(--c-black) 90% c h);
 
   /* Foreground and background colors */
-  --c-fg: light-dark(var(--c-black), var(--c-white));
-  --c-bg: light-dark(var(--c-white-9), var(--c-black-2));
+  --c-fg: light-dark(var(--c-black), var(--c-brown));
+  --c-bg: light-dark(var(--c-white), var(--c-black-2));
 
   /* Font sizes */
   --fs--2: clamp(0.6331rem, 0.7111rem + -0.0831vw, 0.6944rem);

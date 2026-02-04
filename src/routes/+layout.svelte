@@ -21,5 +21,9 @@
 <style>
   main {
     padding-inline: 0.5rem;
+
+    @media (--above-sm) {
+      padding-inline: 2rem;
+    }
   }
 </style>

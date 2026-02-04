@@ -36,9 +36,9 @@
 <style>
   header {
     color-scheme: dark;
-    background-color: var(--c-bg);
+    background-color: var(--c-black-2);
     z-index: 1;
-    padding-inline: 0.5rem;
+    padding-inline: 1rem;
     border-bottom: 2px solid var(--c-black-3);
 
     h1 {
@@ -83,6 +83,7 @@
         }
 
         :global(.header-link) {
+          color: var(--c-white);
           padding-block: 1rem;
           transition: background-color 0.2s ease;
         }

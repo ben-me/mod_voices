@@ -30,6 +30,7 @@
   "username_max_length": "Der Nutzername darf nicht länger als 20 Zeichen sein",
   "email_required": "Bitte eine Email-Adresse eingeben",
   "email_invalid": "Ungültiges Email Format",
+  "project_new_add_voice": "Neue gesuchte Stimme hinzufügen",
   "username": "Nutzername",
   "email": "Email",
   "password": "Passwort",
