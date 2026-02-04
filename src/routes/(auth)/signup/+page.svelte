@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
   import { m } from "$lib/paraglide/messages.js";
   import { sign_up } from "./signup.remote";
   import Input from "$lib/components/Input.svelte";
   import { user_create_schema } from "$lib/utilities/validation-schemas";
   import { onMount } from "svelte";
+  import Link from "$lib/components/Link.svelte";
 
   onMount(() => {
     if (sign_up.fields.allIssues()) {
@@ -14,14 +14,14 @@
 </script>
 
 <svelte:head>
-  <title>{m.signup()} - ModVoices</title>
+  <title>{m.title_signup()} - ModVoices</title>
 </svelte:head>
 
 <form
   {...sign_up.preflight(user_create_schema)}
   oninput={() => sign_up.validate()}
 >
-  <h2>{m.signupHeading()}</h2>
+  <h2>{m.signup_form_heading()}</h2>
   <label>
     {m.username()}: <span>*</span>
     <Input
@@ -48,8 +48,8 @@
       {m.signup()}
     </button>
     <p>
-      {m.accountExists()}
-      <a href={resolve("/login")}>{m.loginHere()}</a>
+      {m.signup_account_exists()}
+      <Link href="/login">{m.signup_login_link()}</Link>
     </p>
   </div>
 </form>
@@ -90,14 +90,14 @@
       gap: 1rem;
       text-align: center;
 
-      a {
+      :global(a) {
         display: inline;
         color: dodgerblue;
         text-decoration: initial;
+      }
 
-        &:hover {
-          text-decoration: underline;
-        }
+      :global(a):hover {
+        text-decoration: underline;
       }
     }
   }

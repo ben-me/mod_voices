@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
   import Input from "$lib/components/Input.svelte";
   import * as m from "$lib/paraglide/messages";
   import { login_user_schema } from "$lib/utilities/validation-schemas";
   import { useDebounce } from "runed";
   import { log_in } from "./login.remote";
   import { onMount } from "svelte";
+  import Link from "$lib/components/Link.svelte";
 
   const login_validation = useDebounce(log_in.validate, 350);
 
@@ -17,14 +17,14 @@
 </script>
 
 <svelte:head>
-  <title>{m.login()} - ModVoices</title>
+  <title>{m.title_login()} - ModVoices</title>
 </svelte:head>
 
 <form
   {...log_in.preflight(login_user_schema)}
   oninput={() => login_validation()}
 >
-  <h2>{m.loginHeading()}</h2>
+  <h2>{m.title_login()}</h2>
   <label>
     {m.email()}:
     <Input
@@ -49,8 +49,8 @@
       {m.login()}
     </button>
     <p>
-      {m.noAccount()}
-      <a href={resolve("/signup")}>{m.signupHere()}</a>
+      {m.login_no_account()}
+      <Link href="/signup">{m.login_signup_link()}</Link>
     </p>
   </div>
 </form>
@@ -90,14 +90,14 @@
       gap: 1rem;
       text-align: center;
 
-      a {
+      :global(a) {
         display: inline;
         color: dodgerblue;
         text-decoration: initial;
+      }
 
-        &:hover {
-          text-decoration: underline;
-        }
+      :global(a):hover {
+        text-decoration: underline;
       }
     }
   }

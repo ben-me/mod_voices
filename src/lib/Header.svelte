@@ -1,29 +1,32 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
+  import Link from "./components/Link.svelte";
   import { m } from "./paraglide/messages";
 </script>
 
 <header>
   <div>
     <h1>
-      <a href={resolve("/")}><span>Mod</span>Voices</a>
+      <Link href="/">
+        <span>Mod</span>Voices
+      </Link>
     </h1>
     <nav>
       <ul>
         <li>
-          <a href={resolve("/projects")} class="header-link">
-            {m.modProjects()}
-          </a>
+          <Link href="/projects" class="header-link">
+            {m.nav_projects()}
+          </Link>
         </li>
         <li>
-          <a href={resolve("/voices")} class="header-link">{m.voiceActors()}</a>
+          <Link href="/voices" class="header-link">{m.nav_voice_actors()}</Link>
         </li>
         <li>
-          <a href={resolve("/signup")} class="btn ghost">{m.signup()}</a>
+          <Link href="/signup" class="btn ghost">{m.signup()}</Link>
         </li>
         <li>
-          <a href={resolve("/login")} class="btn secondary ghost">{m.login()}</a
-          >
+          <Link href="/login" class="btn secondary ghost">
+            {m.login()}
+          </Link>
         </li>
       </ul>
     </nav>
@@ -39,7 +42,7 @@
     border-bottom: 2px solid var(--c-black-3);
 
     h1 {
-      a {
+      :global(a) {
         font-size: var(--fs-3);
         text-decoration: none;
         color: var(--c-white);
@@ -75,17 +78,17 @@
           align-items: center;
         }
 
-        a {
+        :global(a) {
           padding-inline: 1rem;
         }
 
-        .header-link {
+        :global(.header-link) {
           padding-block: 1rem;
           transition: background-color 0.2s ease;
+        }
 
-          &:hover {
-            background-color: var(--c-black-4);
-          }
+        :global(.header-link):hover {
+          background-color: var(--c-black-4);
         }
       }
     }

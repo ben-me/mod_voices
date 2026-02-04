@@ -3,36 +3,36 @@ import * as v from "valibot";
 
 const validateUsername = v.pipe(
   v.string(),
-  v.minLength(3, m.usernameMinLength()),
-  v.maxLength(20, m.usernameMaxLength()),
-  v.nonEmpty(m.usernameRequired()),
+  v.minLength(3, m.username_min_length()),
+  v.maxLength(20, m.username_max_length()),
+  v.nonEmpty(m.username_required()),
 );
 
 const validatePassword = v.pipe(
   v.string(),
-  v.nonEmpty(m.passwordRequired()),
-  v.minLength(8, m.passwortMinLength()),
-  v.maxLength(40, m.passwortMaxLength()),
-  v.regex(/[a-z]/, m.passwordLowercase()),
-  v.regex(/[A-Z]/, m.passwordUppercase()),
-  v.regex(/[0-9]/, m.passwordNumber()),
-  v.regex(/[-!@#$%&*()=_+]/, m.passwordSymbol()),
+  v.nonEmpty(m.password_required()),
+  v.minLength(8, m.passwort_min_length()),
+  v.maxLength(40, m.passwort_max_length()),
+  v.regex(/[a-z]/, m.password_lowercase()),
+  v.regex(/[A-Z]/, m.password_uppercase()),
+  v.regex(/[0-9]/, m.password_number()),
+  v.regex(/[-!@#$%&*()=_+]/, m.password_symbol()),
 );
 
 const validateLoginPassword = v.config(
   v.pipe(
     v.string(),
-    v.nonEmpty(m.passwordRequired),
-    v.minLength(8, m.passwortMinLength()),
-    v.maxLength(40, m.passwortMaxLength()),
+    v.nonEmpty(m.password_required()),
+    v.minLength(8, m.passwort_min_length()),
+    v.maxLength(40, m.passwort_max_length()),
   ),
   { abortPipeEarly: true },
 );
 
 const validateEmail = v.pipe(
   v.string(),
-  v.nonEmpty(m.emailRequired()),
-  v.email(m.emailInvalid()),
+  v.nonEmpty(m.email_required()),
+  v.email(m.email_invalid()),
 );
 
 export const user_create_schema = v.object({

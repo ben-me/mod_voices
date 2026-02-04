@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
   import hero from "$lib/assets/hero.jpg";
+  import Link from "$lib/components/Link.svelte";
   import { m } from "$lib/paraglide/messages";
 </script>
 
 <svelte:head>
-  <title>{m.homeTitle()} - ModVoices</title>
+  <title>{m.title_home()} - ModVoices</title>
 </svelte:head>
 
 <img
   src={hero}
-  alt={m.heroAltText()}
+  alt={m.home_hero_alt()}
   class="hero-image"
   width="3453"
   height="1440"
@@ -18,13 +18,15 @@
 <div class="hero">
   <div class="hero-texts">
     <h2>
-      {m.intro()}
+      {m.home_intro()}
     </h2>
     <div class="hero-buttons">
-      <a href={resolve("/projects")} class="btn">{m.discoverProject()}</a>
-      <a href={resolve("/login")} class="btn outline">
-        {m.offerVoice()}
-      </a>
+      <Link href="/projects" class="btn">
+        {m.home_discover_projects()}
+      </Link>
+      <Link href="/login" class="btn outline">
+        {m.home_offer_voice()}
+      </Link>
     </div>
   </div>
 </div>
