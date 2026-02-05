@@ -8,14 +8,14 @@
   <title>{m.title_home()} - ModVoices</title>
 </svelte:head>
 
-<img
-  src={hero}
-  alt={m.home_hero_alt()}
-  class="hero-image"
-  width="3453"
-  height="1440"
-/>
 <div class="hero">
+  <img
+    src={hero}
+    alt={m.home_hero_alt()}
+    class="hero-image"
+    width="3453"
+    height="1440"
+  />
   <div class="hero-texts">
     <h2>
       {m.home_intro()}
@@ -32,22 +32,20 @@
 </div>
 
 <style>
-  img {
-    position: absolute;
-    inset: 0;
-    height: 100dvh;
-    object-fit: cover;
-    opacity: 0.7;
-  }
-
   .hero {
     color-scheme: dark;
-    color: var(--c-white);
-    position: relative;
+    background-color: var(--c-bg);
     height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+    }
   }
 
   .hero-texts {
+    color: var(--c-white);
     position: absolute;
     inset: 0;
     display: grid;

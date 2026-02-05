@@ -104,15 +104,8 @@
 </div>
 
 <style>
-  .wrapper {
-    display: grid;
-    padding-block: 2rem;
-    max-width: min(80rem, 100%);
-    margin-inline: auto;
-  }
-
   h2 {
-    margin-block-end: 1rem;
+    margin-block: 1rem;
     font-size: var(--fs-2);
   }
 
@@ -133,7 +126,6 @@
     }
 
     label {
-      color: light-dark(var(--c-fg), var(--c-white));
       font-weight: 600;
       display: flex;
       flex-direction: column;

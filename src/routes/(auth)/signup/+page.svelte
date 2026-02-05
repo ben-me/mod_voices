@@ -17,59 +17,61 @@
   <title>{m.title_signup()} - ModVoices</title>
 </svelte:head>
 
-<form
-  {...sign_up.preflight(user_create_schema)}
-  oninput={() => sign_up.validate()}
->
-  <h2>{m.signup_form_heading()}</h2>
-  <label>
-    {m.username()}: <span>*</span>
-    <Input
-      {...sign_up.fields.name.as("text")}
-      inputIssues={sign_up.fields.name.issues()}
-    />
-  </label>
-  <label>
-    {m.email()}: <span>*</span>
-    <Input
-      {...sign_up.fields.email.as("email")}
-      inputIssues={sign_up.fields.email.issues()}
-    />
-  </label>
-  <label>
-    {m.password()}: <span>*</span>
-    <Input
-      {...sign_up.fields._password.as("password")}
-      inputIssues={sign_up.fields._password.issues()}
-    />
-  </label>
-  <div>
-    <button class="btn">
-      {m.signup()}
-    </button>
-    <p>
-      {m.signup_account_exists()}
-      <Link href="/login">{m.signup_login_link()}</Link>
-    </p>
-  </div>
-</form>
+<div class="wrapper">
+  <form
+    {...sign_up.preflight(user_create_schema)}
+    oninput={() => sign_up.validate()}
+  >
+    <h2>{m.signup_form_heading()}</h2>
+    <label>
+      {m.username()}: <span>*</span>
+      <Input
+        {...sign_up.fields.name.as("text")}
+        inputIssues={sign_up.fields.name.issues()}
+      />
+    </label>
+    <label>
+      {m.email()}: <span>*</span>
+      <Input
+        {...sign_up.fields.email.as("email")}
+        inputIssues={sign_up.fields.email.issues()}
+      />
+    </label>
+    <label>
+      {m.password()}: <span>*</span>
+      <Input
+        {...sign_up.fields._password.as("password")}
+        inputIssues={sign_up.fields._password.issues()}
+      />
+    </label>
+    <div>
+      <button class="btn">
+        {m.signup()}
+      </button>
+      <p>
+        {m.signup_account_exists()}
+        <Link href="/login">{m.signup_login_link()}</Link>
+      </p>
+    </div>
+  </form>
+</div>
 
 <style>
   form {
-    background-color: light-dark(var(--c-white), var(--c-black-3));
-    margin-inline: auto;
-    margin-block: 1rem;
+    background-color: light-dark(var(--c-white-9), var(--c-black-2));
     display: flex;
+    margin-inline: auto;
     flex-direction: column;
     max-width: 25em;
     gap: 1rem;
+    margin-block-start: 0.5rem;
     padding: 1.5rem 2rem 2rem;
 
     label {
       width: 100%;
       display: flex;
       flex-direction: column;
-      color: var(--c-white);
+      font-weight: 600;
 
       span {
         display: contents;
@@ -79,7 +81,7 @@
 
     h2 {
       text-align: center;
-      font-size: var(--fs-3);
+      font-size: var(--fs-1);
     }
 
     div {
@@ -89,7 +91,6 @@
       align-items: stretch;
       gap: 1rem;
       text-align: center;
-      color: var(--c-white);
 
       :global(a) {
         display: inline;

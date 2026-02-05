@@ -20,62 +20,64 @@
   <title>{m.title_login()} - ModVoices</title>
 </svelte:head>
 
-<form
-  {...log_in.preflight(login_user_schema)}
-  oninput={() => login_validation()}
->
-  <h2>{m.title_login()}</h2>
-  <label>
-    {m.email()}:
-    <Input
-      {...log_in.fields.email.as("email")}
-      inputIssues={log_in.fields.email.issues()}
-    />
-  </label>
-  <label>
-    {m.password()}:
-    <Input
-      {...log_in.fields._password.as("password")}
-      inputIssues={log_in.fields._password.issues()}
-    />
-  </label>
-  {#each log_in.fields.allIssues() as issue (issue.message)}
-    {#if issue.path.length === 0}
-      <p>{issue.message}</p>
-    {/if}
-  {/each}
-  <div>
-    <button class="btn">
-      {m.login()}
-    </button>
-    <p>
-      {m.login_no_account()}
-      <Link href="/signup">{m.login_signup_link()}</Link>
-    </p>
-  </div>
-</form>
+<div class="wrapper">
+  <form
+    {...log_in.preflight(login_user_schema)}
+    oninput={() => login_validation()}
+  >
+    <h2>{m.login_form_heading()}</h2>
+    <label>
+      {m.email()}:
+      <Input
+        {...log_in.fields.email.as("email")}
+        inputIssues={log_in.fields.email.issues()}
+      />
+    </label>
+    <label>
+      {m.password()}:
+      <Input
+        {...log_in.fields._password.as("password")}
+        inputIssues={log_in.fields._password.issues()}
+      />
+    </label>
+    {#each log_in.fields.allIssues() as issue (issue.message)}
+      {#if issue.path.length === 0}
+        <p>{issue.message}</p>
+      {/if}
+    {/each}
+    <div>
+      <button class="btn">
+        {m.login()}
+      </button>
+      <p>
+        {m.login_no_account()}
+        <Link href="/signup">{m.login_signup_link()}</Link>
+      </p>
+    </div>
+  </form>
+</div>
 
 <style>
   form {
-    background-color: light-dark(var(--c-white), var(--c-black-3));
-    margin-inline: auto;
-    margin-block: 1rem;
     display: flex;
     flex-direction: column;
-    max-width: 25em;
     gap: 1rem;
+    max-width: 25em;
+    background-color: light-dark(var(--c-white-9), var(--c-black-2));
+    margin-inline: auto;
+    margin-block-start: 0.5rem;
     padding: 1.5rem 2rem 2rem;
 
     label {
       width: 100%;
       display: flex;
       flex-direction: column;
-      color: var(--c-white);
+      font-weight: 600;
     }
 
     h2 {
       text-align: center;
-      font-size: var(--fs-3);
+      font-size: var(--fs-1);
     }
 
     > p {
@@ -89,7 +91,6 @@
       align-items: stretch;
       gap: 1rem;
       text-align: center;
-      color: var(--c-white);
 
       :global(a) {
         display: inline;

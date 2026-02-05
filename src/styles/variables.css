@@ -69,8 +69,8 @@
   --c-black-9: oklch(from var(--c-black) 90% c h);
 
   /* Foreground and background colors */
-  --c-fg: light-dark(var(--c-black), var(--c-brown));
-  --c-bg: light-dark(var(--c-white), var(--c-black-2));
+  --c-fg: light-dark(var(--c-black), var(--c-white));
+  --c-bg: light-dark(var(--c-white), var(--c-black-3));
 
   /* Font sizes */
   --fs--2: clamp(0.6331rem, 0.7111rem + -0.0831vw, 0.6944rem);
