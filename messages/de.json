@@ -12,10 +12,11 @@
   "home_offer_voice": "Stimme anbieten",
   "nav_projects": "Projekte",
   "nav_voice_actors": "Synchronsprecher",
+  "nav_open_sidebar": "Navigationsmenü öffnen",
+  "nav_close_sidebar": "Navigationsmenü schließen",
   "signup_form_heading": "Kostenlosen Account erstellen",
   "signup_login_link": "Hier anmelden",
   "signup_account_exists": "Account vorhanden?",
-  "login_form_heading": "Bei ModVoices anmelden",
   "login_signup_link": "Hier registrieren",
   "login_no_account": "Noch keinen Account?",
   "password_required": "Bitte ein Passwort eingeben",
@@ -35,5 +36,8 @@
   "email": "Email",
   "password": "Passwort",
   "login": "Anmelden",
-  "signup": "Registrieren"
+  "signup": "Registrieren",
+  "projects": "Projekte",
+  "voices": "Stimmen",
+  "voice_actors": "Synchronsprecher"
 }

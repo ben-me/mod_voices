@@ -25,7 +25,7 @@
     {...log_in.preflight(login_user_schema)}
     oninput={() => login_validation()}
   >
-    <h2>{m.login_form_heading()}</h2>
+    <h2>{m.login()}</h2>
     <label>
       {m.email()}:
       <Input

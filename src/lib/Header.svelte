@@ -1,5 +1,6 @@
 <script lang="ts">
   import Link from "./components/Link.svelte";
+  import MobileNavigation from "./components/MobileNavigation.svelte";
   import { m } from "./paraglide/messages";
 </script>
 
@@ -21,24 +22,26 @@
           <Link href="/voices" class="header-link">{m.nav_voice_actors()}</Link>
         </li>
         <li>
-          <Link href="/signup" class="btn ghost">{m.signup()}</Link>
+          <Link href="/signup">{m.signup()}</Link>
         </li>
         <li>
-          <Link href="/login" class="btn secondary ghost">
+          <Link href="/login" class="btn tertiary">
             {m.login()}
           </Link>
         </li>
       </ul>
     </nav>
+    <MobileNavigation />
   </div>
 </header>
 
 <style>
   header {
+    position: relative;
     color-scheme: dark;
     background-color: var(--c-black-2);
-    z-index: 1;
-    padding-inline: 1rem;
+    z-index: 10;
+    padding-inline: 0.5rem;
     border-bottom: 2px solid var(--c-black-3);
 
     h1 {
