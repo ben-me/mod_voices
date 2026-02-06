@@ -1,4 +1,5 @@
 import { form } from "$app/server";
+import { m } from "$lib/paraglide/messages";
 import { auth } from "$lib/server/auth";
 import { get_user_by_name } from "$lib/server/db/operations";
 import { user_create_schema } from "$lib/utilities/validation-schemas";
@@ -10,7 +11,7 @@ export const sign_up = form(
   async ({ name, email, _password }, issue) => {
     const user_exists = await get_user_by_name(name);
     if (user_exists) {
-      invalid(issue.name("Username already taken"));
+      invalid(issue.name(m.username_exists()));
     }
     try {
       await auth.api.signUpEmail({

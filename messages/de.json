@@ -29,6 +29,7 @@
   "username_required": "Bitte einen Nutzernamen eingeben",
   "username_min_length": "Der Nutzername muss aus mindestens 3 Zeichen bestehen",
   "username_max_length": "Der Nutzername darf nicht länger als 20 Zeichen sein",
+  "username_exists": "Nutzername wird bereits verwendet",
   "email_required": "Bitte eine Email-Adresse eingeben",
   "email_invalid": "Ungültiges Email Format",
   "project_new_add_voice": "Neue gesuchte Stimme hinzufügen",
