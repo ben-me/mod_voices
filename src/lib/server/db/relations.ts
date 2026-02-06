@@ -6,6 +6,7 @@ export const relations = defineRelations(schema, (r) => ({
     sessions: r.many.session(),
     accounts: r.many.account(),
     twoFactors: r.many.twoFactor(),
+    projectListings: r.many.projectListing(),
   },
   session: {
     user: r.one.user({
@@ -26,12 +27,18 @@ export const relations = defineRelations(schema, (r) => ({
     }),
   },
   projectListing: {
+    user: r.one.user({
+      from: r.projectListing.userId,
+      to: r.user.id,
+      optional: false,
+    }),
     voiceDescription: r.many.voiceDescription(),
   },
   voiceDescription: {
     projectListing: r.one.projectListing({
       from: r.voiceDescription.projectId,
       to: r.projectListing.id,
+      optional: false,
     }),
   },
 }));

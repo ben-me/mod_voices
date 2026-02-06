@@ -137,6 +137,10 @@ export const voiceDescription = pgTable(
 
 export const voiceOffer = pgTable("voice_offer", {
   id: serial("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+
   title: varchar("title", { length: 256 }),
   description: text("description"),
   active: boolean("active").default(false).notNull(),
