@@ -32,6 +32,7 @@
   "username_exists": "Nutzername wird bereits verwendet",
   "email_required": "Bitte eine Email-Adresse eingeben",
   "email_invalid": "Ungültiges Email Format",
+  "email_exists": "Email Adresse wird bereits verwendet",
   "project_new_add_voice": "Neue gesuchte Stimme hinzufügen",
   "username": "Nutzername",
   "email": "Email",

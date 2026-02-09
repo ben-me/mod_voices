@@ -141,7 +141,7 @@
     display: grid;
     gap: 0.75rem;
 
-    @media (--above-lg) {
+    @media (--above-md) {
       grid-template-columns: repeat(3, 1fr);
     }
 

@@ -171,9 +171,5 @@
     margin-inline: auto;
     max-width: min(80rem, 100%);
     padding-inline: 0.5rem;
-
-    @media (--above-sm) {
-      padding-inline: 0;
-    }
   }
 }
