@@ -2,7 +2,7 @@
   import "./style.css";
   import Header from "$lib/Header.svelte";
 
-  const { children } = $props();
+  const { data, children } = $props();
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
   <meta name="color-scheme" />
 </svelte:head>
 
-<Header />
+<Header user={data.user} />
 <main id="main-content">
   {@render children?.()}
 </main>

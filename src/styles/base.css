@@ -170,6 +170,6 @@
   .wrapper {
     margin-inline: auto;
     max-width: min(80rem, 100%);
-    padding-inline: 0.5rem;
+    padding: 1rem 0.5rem;
   }
 }

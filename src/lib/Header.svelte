@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { log_out } from "../routes/(auth)/logout.remote";
   import Link from "./components/Link.svelte";
   import MobileNavigation from "./components/MobileNavigation.svelte";
   import { m } from "./paraglide/messages";
+
+  const { user } = $props();
 </script>
 
 <header>
@@ -21,14 +24,23 @@
         <li>
           <Link href="/voices" class="header-link">{m.nav_voice_actors()}</Link>
         </li>
-        <li>
-          <Link href="/signup">{m.signup()}</Link>
-        </li>
-        <li>
-          <Link href="/login" class="btn tertiary">
-            {m.login()}
-          </Link>
-        </li>
+
+        {#if !user}
+          <li>
+            <Link href="/signup">{m.signup()}</Link>
+          </li>
+          <li>
+            <Link href="/login" class="btn tertiary">
+              {m.login()}
+            </Link>
+          </li>
+        {:else}
+          <li>
+            <form {...log_out}>
+              <button class="btn ghost">{m.logout()}</button>
+            </form>
+          </li>
+        {/if}
       </ul>
     </nav>
     <MobileNavigation />

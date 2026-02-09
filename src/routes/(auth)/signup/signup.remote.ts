@@ -27,7 +27,7 @@ export const sign_up = form(
         registration_error?.body?.code ===
         "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL"
       ) {
-        invalid(issue.email("Email is already taken"));
+        invalid(issue.email(m.email_exists()));
       }
     }
   },
