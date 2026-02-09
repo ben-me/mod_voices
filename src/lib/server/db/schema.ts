@@ -123,7 +123,7 @@ export const projectListing = pgTable("project_listing", {
 export const voiceDescription = pgTable(
   "voice_descriptions",
   {
-    id: serial(),
+    id: serial("id").primaryKey(),
     projectId: integer("project_id")
       .notNull()
       .references(() => projectListing.id, { onDelete: "cascade" }),
@@ -156,7 +156,7 @@ export const voiceOffer = pgTable("voice_offer", {
 });
 
 export const application = pgTable("application", {
-  id: text("id").primaryKey(),
+  id: serial("id").primaryKey(),
   voiceActorId: text("voice_actor_id")
     .notNull()
     .references(() => user.id),
