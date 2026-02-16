@@ -45,3 +45,25 @@ export const login_user_schema = v.object({
   email: v.config(validateEmail, { abortEarly: true }),
   _password: validateLoginPassword,
 });
+
+export const voice_descriptions = v.array(
+  v.object({
+    gender: v.pipe(v.string(), v.nonEmpty(), v.maxLength(50)),
+    pitch: v.pipe(v.string(), v.nonEmpty(), v.maxLength(100)),
+    description: v.string(),
+  }),
+);
+
+export const project_create_schema = v.object({
+  title: v.pipe(v.string(), v.nonEmpty(), v.maxLength(256)),
+  description: v.string(),
+  voiceDescriptions: voice_descriptions,
+  image: v.pipe(
+    v.file(m.new_project_image_required()),
+    v.mimeType(["image/jpeg", "image/png"], m.new_project_image_invalid()),
+    v.maxSize(1024 * 1024, m.new_project_image_size()),
+  ),
+});
+
+export type ProjectInput = v.InferInput<typeof project_create_schema>;
+export type VoiceDescriptions = v.InferOutput<typeof voice_descriptions>;
