@@ -231,6 +231,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        grid-column: span 2;
 
         button {
           align-self: center;
