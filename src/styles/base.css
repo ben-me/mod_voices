@@ -92,7 +92,7 @@
     margin-block-start: 0.25rem;
     border: 2px var(--c-black-8) solid;
     background-color: oklch(from var(--c-white) l c h / 93%);
-    padding: 0.35rem;
+    padding: 0.2em;
     color: var(--c-black);
     font-size: var(--fs-0);
     font-weight: normal;
