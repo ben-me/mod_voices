@@ -74,6 +74,15 @@
       }
     }
 
+    .btn {
+      color: var(--c-red);
+      background-color: transparent;
+
+      &:hover {
+        color: hsl(from var(--c-red) h s 45%);
+      }
+    }
+
     div {
       display: flex;
       justify-content: space-between;
