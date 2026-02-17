@@ -24,7 +24,7 @@
       <Link href="/projects" class="btn">
         {m.home_discover_projects()}
       </Link>
-      <Link href="/login" class="btn outline">
+      <Link href="/voices" class="btn outline">
         {m.home_offer_voice()}
       </Link>
     </div>
