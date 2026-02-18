@@ -55,10 +55,6 @@
     }
   }
 
-  input {
-    width: 100%;
-  }
-
   ul {
     margin-block-start: 0.25rem;
   }
