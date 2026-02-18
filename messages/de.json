@@ -33,14 +33,15 @@
   "new_project_status": "Status",
   "new_project_voices_heading": "Benötigte Stimmen",
   "new_project_voice_entry": "Stimme Nr.",
-  "new_project_voice_gender": "Geschlecht des Characters",
+  "new_project_voice_description": "Beschreibung des Characters",
   "new_project_voice_pitch": "Klang der Stimme",
-  "new_project_voice_description": "Zusätzliche Informationen",
+  "new_project_voice_extra_info": "Zusätzliche Informationen",
   "new_project_add_voice": "Neue gesuchte Stimme hinzufügen",
   "new_project_remove_voice": "Gesuchte Stimme entfernen",
   "new_project_image_required": "Bitte ein Bild auswählen",
   "new_project_image_invalid": "Bitte ein JPEG oder PNG Bild auswählen",
-  "new_project_image_size": "Bitte ein kleineres Bild verwenden (maximal 1 MB groß)",
+  "new_project_image_size": "Bitte ein kleineres Bild verwenden (maximal 1 MB)",
+  "new_project_upload_image": "Bild auswählen",
   "username_required": "Bitte einen Nutzernamen eingeben",
   "username_min_length": "Der Nutzername muss aus mindestens 3 Zeichen bestehen",
   "username_max_length": "Der Nutzername darf nicht länger als 20 Zeichen sein",
@@ -57,5 +58,6 @@
   "projects": "Projekte",
   "voices": "Stimmen",
   "voice_actors": "Synchronsprecher",
-  "save": "Speichern"
+  "save": "Speichern",
+  "upload": "Hochladen"
 }

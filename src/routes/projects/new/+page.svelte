@@ -1,7 +1,10 @@
 <script lang="ts">
+  import ImageUpload from "$lib/components/ImageUpload.svelte";
   import Input from "$lib/components/Input.svelte";
   import { m } from "$lib/paraglide/messages";
+  import type { Attachment } from "svelte/attachments";
   import { create_project } from "../project.remote";
+  import { project_create_schema } from "$lib/utilities/validation-schemas";
 
   type VoiceDescription = {
     gender: string;
@@ -13,6 +16,7 @@
     create_project.fields;
 
   const voices_needed = $state<VoiceDescription[]>([]);
+  let uploaded_image: File | undefined = $state();
 
   function add_new_voice_description() {
     voices_needed.push({
@@ -25,6 +29,27 @@
   function remove_new_voice_description(index: number) {
     voices_needed.splice(index, 1);
   }
+
+  function show_preview_image(
+    image_file: File,
+  ): Attachment<HTMLImageElement> | undefined {
+    return (img: HTMLImageElement) => {
+      const source = URL.createObjectURL(image_file);
+      img.src = source;
+      return () => URL.revokeObjectURL(source);
+    };
+  }
+
+  async function on_image_change(event: Event) {
+    await create_project.validate();
+    const image_issues = create_project.fields.image.issues();
+    if (image_issues) {
+      uploaded_image = undefined;
+      return;
+    }
+    const input_file = (event.target as HTMLInputElement).files?.[0];
+    uploaded_image = input_file;
+  }
 </script>
 
 <svelte:head>
@@ -33,7 +58,10 @@
 
 <div class="wrapper">
   <h2>{m.new_project_heading()}</h2>
-  <form {...create_project} enctype="multipart/form-data">
+  <form
+    {...create_project.preflight(project_create_schema)}
+    enctype="multipart/form-data"
+  >
     <div>
       <h3>{m.new_project_general_info()}</h3>
       <label class="project-title">
@@ -45,11 +73,20 @@
         <textarea rows="10" {...description.as("text")}></textarea>
       </label>
     </div>
-    <div>
+    <div class="project-image">
       <h3>Vorschaubild:</h3>
-      <label>
-        <Input {...image.as("file")} accept=".jpeg,.png" />
-      </label>
+      {#if uploaded_image}
+        <div class="project-image-wrapper">
+          <img alt="" {@attach show_preview_image(uploaded_image)} />
+        </div>
+      {:else}
+        <div class="drop-zone"></div>
+      {/if}
+      <ImageUpload
+        {...image.as("file")}
+        onchange={(e) => on_image_change(e)}
+        inputIssues={image.issues()}
+      />
     </div>
     <div>
       <h3 class="project-voices">
@@ -75,7 +112,7 @@
             </div>
             <div class="new-voice-inputs">
               <label>
-                {m.new_project_voice_gender()}:
+                {m.new_project_voice_description()}:
                 <Input
                   {...voiceDescriptions[index].gender.as("text")}
                   inputIssues={voiceDescriptions[index].gender.issues()}
@@ -91,7 +128,7 @@
                 />
               </label>
               <label>
-                {m.new_project_voice_description()}:
+                {m.new_project_voice_extra_info()}:
                 <Input
                   {...voiceDescriptions[index].description.as("text")}
                   inputIssues={voiceDescriptions[index].description.issues()}
@@ -102,10 +139,20 @@
           </li>
         {/each}
         <li class="ghost">
-          <p>{m.new_project_voice_entry()}</p>
-          <div>
+          <div class="new-voice-heading">
+            <p>{m.new_project_voice_entry()}</p>
+            <button type="button" aria-label={m.new_project_remove_voice()}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M18.36 19.78L12 13.41l-6.36 6.37l-1.42-1.42L10.59 12L4.22 5.64l1.42-1.42L12 10.59l6.36-6.36l1.41 1.41L13.41 12l6.36 6.36z"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="new-voice-inputs">
             <label>
-              {m.new_project_voice_gender()}:
+              {m.new_project_voice_description()}:
               <Input type="text" disabled />
             </label>
             <label>
@@ -113,7 +160,7 @@
               <Input type="text" disabled />
             </label>
             <label>
-              {m.new_project_voice_description()}:
+              {m.new_project_voice_extra_info()}:
               <Input type="text" disabled />
             </label>
           </div>
@@ -149,8 +196,10 @@
 
   form {
     background-color: light-dark(var(--c-black-9), var(--c-black-2));
+    background-size: cover;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 30%;
+    align-items: start;
     gap: 1.5rem;
     border: 1px solid var(--c-brown);
     padding: 1.5rem;
@@ -181,6 +230,36 @@
     }
   }
 
+  .project-image {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    div {
+      position: relative;
+      height: 100%;
+    }
+
+    .project-image-wrapper {
+      border: 1px solid var(--c-brown);
+      border-style: outset;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+      }
+    }
+
+    label {
+      margin-block-start: auto;
+    }
+  }
+
   .submit {
     grid-column: 2/2;
     place-self: end;
@@ -204,10 +283,6 @@
 
       p {
         color: var(--c-brown);
-      }
-
-      label {
-        font-weight: 400;
       }
 
       .ghost-button {
@@ -256,6 +331,10 @@
       .new-voice-inputs {
         display: grid;
         gap: 1rem;
+
+        label {
+          font-weight: normal;
+        }
       }
     }
 

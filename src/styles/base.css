@@ -166,10 +166,4 @@
       }
     }
   }
-
-  .wrapper {
-    margin-inline: auto;
-    max-width: min(80rem, 100%);
-    padding: 1rem 0.5rem;
-  }
 }
