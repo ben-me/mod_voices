@@ -54,15 +54,20 @@ export const voice_descriptions = v.array(
   }),
 );
 
+export const project_image_schema = v.pipe(
+  v.file(m.new_project_image_required()),
+  v.mimeType(
+    ["image/jpeg", "image/png", "image/webp"],
+    m.new_project_image_invalid(),
+  ),
+  v.maxSize(1024 * 1024, m.new_project_image_size()),
+);
+
 export const project_create_schema = v.object({
   title: v.pipe(v.string(), v.nonEmpty(), v.maxLength(256)),
   description: v.string(),
   voiceDescriptions: voice_descriptions,
-  image: v.pipe(
-    v.file(m.new_project_image_required()),
-    v.mimeType(["image/jpeg", "image/png"], m.new_project_image_invalid()),
-    v.maxSize(1024 * 1024, m.new_project_image_size()),
-  ),
+  image: project_image_schema,
 });
 
 export type ProjectInput = v.InferInput<typeof project_create_schema>;
