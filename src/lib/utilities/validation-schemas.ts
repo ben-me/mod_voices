@@ -48,8 +48,16 @@ export const login_user_schema = v.object({
 
 export const voice_descriptions = v.array(
   v.object({
-    gender: v.pipe(v.string(), v.nonEmpty(), v.maxLength(50)),
-    pitch: v.pipe(v.string(), v.nonEmpty(), v.maxLength(100)),
+    gender: v.pipe(
+      v.string(),
+      v.nonEmpty(m.empty_string()),
+      v.maxLength(50, m.string_max_50()),
+    ),
+    pitch: v.pipe(
+      v.string(),
+      v.nonEmpty(m.empty_string()),
+      v.maxLength(100, m.string_max_100()),
+    ),
     description: v.string(),
   }),
 );
@@ -64,7 +72,7 @@ export const project_image_schema = v.pipe(
 );
 
 export const project_create_schema = v.object({
-  title: v.pipe(v.string(), v.nonEmpty(), v.maxLength(256)),
+  title: v.pipe(v.string(), v.nonEmpty(m.empty_string()), v.maxLength(256)),
   description: v.string(),
   voiceDescriptions: voice_descriptions,
   image: project_image_schema,
