@@ -34,7 +34,7 @@
   <form
     {...create_project.preflight(project_create_schema)}
     enctype="multipart/form-data"
-    oninput={() => create_project.validate()}
+    oninput={() => create_project.validate({ preflightOnly: true })}
   >
     <div class="general-information">
       <h3>{m.new_project_general_info()}</h3>
