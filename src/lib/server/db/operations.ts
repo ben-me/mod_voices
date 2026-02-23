@@ -27,16 +27,29 @@ export async function create_new_project({
   voiceDescriptions,
   description,
   userId,
-}: ProjectInput & { userId: string }) {
+  image,
+}: Omit<ProjectInput, "image"> & { image: string; userId: string }) {
   const project_response = await db
     .insert(projectListing)
-    .values({ title, description, userId, active: true })
+    .values({ title, description, userId, active: true, image })
     .returning({ projectId: projectListing.id });
 
-  voiceDescriptions.forEach(async (voice) => {
-    await db.insert(voiceDescription).values({
-      projectId: project_response[0].projectId,
-      ...voice,
-    });
+  await Promise.all(
+    voiceDescriptions.map(async (voice) => {
+      await db.insert(voiceDescription).values({
+        projectId: project_response[0].projectId,
+        ...voice,
+      });
+    }),
+  );
+}
+
+export async function get_project_by_name(project_name: string) {
+  const project = await db.query.projectListing.findFirst({
+    where: {
+      title: project_name,
+    },
   });
+
+  return project;
 }
