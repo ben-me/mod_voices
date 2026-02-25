@@ -1,8 +1,8 @@
 {
   "name": "mod-voices",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -11,9 +11,9 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:precommit": "lint-staged",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint && eslint .",
-    "lint:fix": "eslint --max-warnings=0 --fix",
-    "format": "prettier --write .",
+    "lint": "oxlint && oxlint .",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt .",
     "format:file": "prettier --write",
     "test:unit": "vitest",
     "test": "npm run test:unit -- --run && npm run test:e2e",
@@ -24,13 +24,6 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,svelte}": [
-      "pnpm run lint:fix",
-      "pnpm run format:file"
-    ],
-    "*.{json,md,mdx,css,scss,html,yml,yaml}": "pnpm run format:file"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.990.0",
@@ -54,6 +47,7 @@
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/node": "^25.2.3",
     "@types/pg": "^8.16.0",
+    "@typescript/native-preview": "7.0.0-dev.20260225.1",
     "@vitest/browser": "^4.0.18",
     "drizzle-kit": "1.0.0-beta.13-f728631",
     "eslint": "^10.0.0",
@@ -64,6 +58,8 @@
     "globals": "^17.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "oxfmt": "^0.35.0",
+    "oxlint": "^1.50.0",
     "postcss": "^8.5.6",
     "postcss-custom-media": "^12.0.0",
     "postcss-html": "^1.8.1",
@@ -84,5 +80,12 @@
     "vite": "^7.3.1",
     "vitest": "^4.0.18",
     "vitest-browser-svelte": "^2.0.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,svelte}": [
+      "pnpm run lint:fix",
+      "pnpm run format:file"
+    ],
+    "*.{json,md,mdx,css,scss,html,yml,yaml}": "pnpm run format:file"
   }
 }
